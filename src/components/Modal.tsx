@@ -9,11 +9,11 @@ type modalProp={
 }
 export default function Modal({title,description}:modalProp)  {
 
-    const [modalState,SetModal]=useState(true);
+    const [modalState,SetModal]=useState(false);
     const clickHandle=()=>SetModal((state)=>!state);
     const modal=(
     <React.Fragment>
-        <div className="modal">
+        <div className="modal" >
             <h1 className="text-3xl">
                 {title}
             </h1>

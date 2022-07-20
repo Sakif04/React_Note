@@ -3,7 +3,11 @@ import{ noteType} from './../types/noteType.d'
 
 
 let noteList:noteType[]=[];
-const value={noteList}
-const NoteContext=createContext({noteList});
+
+const setNotelist:Function=()=> {}
+
+
+const value={noteList,setNotelist}
+const NoteContext=createContext(value);
 
 export default NoteContext;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createContext } from 'react';
 import {noteType} from "./../types/noteType.d"
 import NoteContext from './NoteContext';
@@ -10,14 +10,17 @@ type NoteProps={
 
 
 export default function NoteProvider( {children}:NoteProps){
-  let noteList :noteType[]=[
-    {
-      id:1,
-      title:"eat Sleep Repeat",
-      description:"Burp during eating & Dream during sleep"
-    }
-  ];
-  const value={noteList}
+  
+  let notes=[{id:0,title:'Dream Big',descripion:"koto je shopno"}];
+  
+  const [noteList,setNotelist]=useState([]);
+
+  function updateNotelist(newNotelist:noteType[]){
+    setNotelist(newNotelist);
+    localStorage.setItem('notes',JSON.stringify(newNotelist));
+  }
+
+  const value={noteList,updateNotelist}
 
   return(
     <NoteContext.Provider value={value} >

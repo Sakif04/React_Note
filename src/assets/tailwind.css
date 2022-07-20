@@ -4,7 +4,9 @@
 
 
 @layer components{
-    
+    .note-list{
+        @apply flex ;
+    }
     .header{
         @apply text-center bg-rose-200 h-10 text-4xl text-rose-800 font-bold py-4 font-sans;
     }
@@ -25,25 +27,27 @@
         @apply my-2 text-center relative;
     }
     .label{
-        @apply absolute top-6 rounded-sm px-1 text-gray-600 text-sm transition-all peer-focus-within:bg-rose-200;
+        @apply absolute  rounded-sm px-1 text-gray-600 text-sm transition-all bg-rose-200 z-20;
         
     }
     .label-desc{
-        @apply left-0;
+        @apply absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] px-2 left-1 ;
+        @apply peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 ;
     }
 
     .label-title{
-        @apply left-40 ml-0 ;
+        @apply left-1 ml-0 absolute duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0];
+        @apply peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 ;
     }
-    
+
     .input{
-        @apply w-full text-gray-900 placeholder-transparent bg-rose-200 border-gray-800 border-2 rounded-md focus:outline-none focus:border-red-400 my-4 ;
+        @apply w-full p-2 text-gray-900 placeholder-transparent bg-rose-200 border-gray-800 border-2 rounded-md focus:outline-none focus:border-red-400 my-4 ;
     }
     .input-title{
         @apply h-10 w-2/3 ;
     }
     .input-desc{
-        @apply h-20 w-full;
+        @apply h-20 w-full peer-focus:-translate-y-4 left-1;
     }
     .btn-add{
         @apply text-6xl col-start-6 col-end-10 self-center text-rose-800 ;
@@ -57,14 +61,4 @@
     .delete_icon{
         @apply text-white text-xl ;
     }
-    
 }
-.input:focus ~ label,
-.input:not(:placeholder-shown) ~ .label
-.input-desc:focus ~ .label-desc,
-.input-desc:not(:placeholder-shown) ~ .label-desc{
-  @apply transform;
-  @apply scale-75;
-  @apply -translate-y-5;
-}
-

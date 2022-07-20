@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Header />
         <AddNote />
-        <ModalList />
+        <ModalList className="note-list" />
       </div>
     </NoteProvider>
   )
