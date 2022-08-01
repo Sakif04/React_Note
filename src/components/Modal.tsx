@@ -23,8 +23,6 @@ export default function Modal({title,description}:modalProp)  {
     </React.Fragment>
     )
 
-   
-    
 
 return (<>
     <div className="note note__modal">
