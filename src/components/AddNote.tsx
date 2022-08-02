@@ -32,7 +32,6 @@ function AddNote() {
         e.preventDefault();
         if(note.title==="" || note.description==="") return;
         const newNote:noteType={...note,id:noteList.length+1};
-        noteList===[] && noteList.push(newNote)
         let newNotelist=[...noteList,newNote];
         updateNotelist(newNotelist);
         localStorage.setItem("notes",JSON.stringify(newNotelist));
