@@ -1,5 +1,5 @@
 import React from "react";
-import ModalList from "./components/ModalList";
+import NoteList from "./components/NoteList";
 import Header from "./components/Header";
 import AddNote from "./components/AddNote";
 import NoteProvider from "./context/NoteProvider";
@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Header />
         <AddNote />
-        <ModalList className="note-list" />
+        <NoteList  />
       </div>
     </NoteProvider>
   )

@@ -3,10 +3,11 @@ import { AiOutlineClose } from 'react-icons/ai';
 import NoteContext from '../context/NoteContext';
 import { noteType } from '../types/noteType.d';
 import Modal from './Modal';
+import Note from './Note';
 
 
 
-function ModalList() {
+function NoteList() {
   const {noteList,activeNote,setActiveNote}=useContext(NoteContext);
   
   useEffect(()=>{},[noteList]);
@@ -35,13 +36,12 @@ function ModalList() {
     </React.Fragment>
     )
   
-  const data=noteList.map(note=><Modal title={note.title} key={note.id} description={note.description} />);
+  const data=noteList.map(note=><Note title={note.title} key={note.id} description={note.description} />);
   return (
-  <>
+  <div className="note-list">
     {data}
     {activeNote&&modal}
-  </>
-  )
+  </div>)
 }
 
-export default ModalList
+export default NoteList

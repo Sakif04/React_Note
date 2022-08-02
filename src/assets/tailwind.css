@@ -56,7 +56,8 @@
         @apply w-8 h-5 bg-rose-600 rounded-sm text-sm absolute top-0 right-0 grid place-items-center;
     }
     .btn_open{
-        @apply w-fit p-1 mt-2 bg-rose-300 rounded-sm  text-sm text-center text-violet-800 ;font-weight: 500;         
+        @apply w-fit p-1 mt-2 bg-rose-300 rounded-sm  text-sm text-center text-amber-800 ;
+        font-weight: 500;         
     }
     .delete_icon{
         @apply text-white text-xl ;
