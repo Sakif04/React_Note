@@ -4,13 +4,14 @@ import {AiOutlineClose} from 'react-icons/ai';
 import {MdOutlineDelete} from 'react-icons/md'
 import NoteContext from '../context/NoteContext';
 
-interface modalProp{
+
+interface noteProp{
     id:number,
     title:string,
-    description:string,
-    setActiveNote:Function
+    
 }
-export default function Note({id,title,description}:modalProp)  {
+
+export default function Note({id,title}:noteProp)  {
     const {noteList,setActiveNote,updateNotelist}=useContext(NoteContext);
     const clickHandle=(e:React.MouseEvent)=>{
         e.preventDefault();
@@ -18,11 +19,10 @@ export default function Note({id,title,description}:modalProp)  {
         let clickedID=parseInt(target.id);
         setActiveNote(clickedID);
     }
+
     const deleteNote=(e:React.MouseEvent)=>{
         e.preventDefault();
-
         let targetId=parseInt(e.currentTarget.id);
-
         let updatedList=noteList.filter((note)=>note.id!==targetId);
         console.log(updatedList);
         updateNotelist(updatedList);
