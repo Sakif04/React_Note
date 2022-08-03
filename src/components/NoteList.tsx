@@ -9,38 +9,23 @@ import Note from './Note';
 
 function NoteList() {
   const {noteList,activeNote,setActiveNote}=useContext(NoteContext);
-  
+  const noteModal=activeNote&& noteList.filter((note)=>note.id===activeNote)[0];
+    
   useEffect(()=>{},[noteList]);
-  const title="Hello";
-  const description="Hello brother";
+  
 
-
+  
   const clickHandle=(e:React.MouseEvent)=>{
     e.preventDefault();
     setActiveNote(null);
-
   }
 
-  
-  const modal=()=>(
-    <React.Fragment>
-        <div className="modal" >
-            <h1 className="text-3xl">
-                {title}
-            </h1>
-            <p className="text-3xl text-slate-400">
-                {description}
-            </p>
-            <button className="btn_delete" onClick={clickHandle}><AiOutlineClose className='delete_icon'/></button>
-        </div>
-    </React.Fragment>
-    )
-  
-  const data=noteList.map(note=><Note title={note.title} key={note.id} description={note.description} />);
+ 
+  const data=noteList.map(note=><Note title={note.title} id={note.id} key={note.id} setActiveNote={setActiveNote} description={note.description} />);
   return (
   <div className="note-list">
     {data}
-    {activeNote&&modal}
+    { noteModal && <Modal title={noteModal?.title} description={noteModal?.description}/>}
   </div>)
 }
 

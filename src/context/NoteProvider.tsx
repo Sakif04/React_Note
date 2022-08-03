@@ -10,10 +10,11 @@ type NoteProps={
 
 
 export default function NoteProvider( {children}:NoteProps){
-  
-  let notes=[{id:0,title:'Dream Big',descripion:"koto je shopno"}];
+  let store= localStorage.getItem('notes')
+  const notes:noteType[] =JSON.parse(store || []);
+
   const [activeNote,setActiveNote]=useState(null);  
-  const [noteList,setNotelist]=useState([]);
+  const [noteList,setNotelist]=useState(notes);
 
   function updateNotelist(newNotelist:[]){
     setNotelist(newNotelist);

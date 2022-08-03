@@ -1,23 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import {AiOutlineClose} from 'react-icons/ai';
+import {MdOutlineDelete} from 'react-icons/md'
+import NoteContext from '../context/NoteContext';
 
-
-type modalProp={
+interface modalProp{
+    id:number,
     title:string,
-    description:string
+    description:string,
+    setActiveNote:Function
 }
-export default function Note({title,description}:modalProp)  {
+export default function Note({id,title,description}:modalProp)  {
+    const {noteList,setActiveNote,updateNotelist}=useContext(NoteContext);
+    const clickHandle=(e:React.MouseEvent)=>{
+        e.preventDefault();
+        const target=e.target.parentElement as HTMLElement;
+        let clickedID=parseInt(target.id);
+        setActiveNote(clickedID);
+    }
+    const deleteNote=(e:React.MouseEvent)=>{
+        e.preventDefault();
 
-    const [modalState,SetModal]=useState(false);
-    const clickHandle=()=>SetModal((state)=>!state);
+        let targetId=parseInt(e.currentTarget.id);
 
+        let updatedList=noteList.filter((note)=>note.id!==targetId);
+        console.log(updatedList);
+        updateNotelist(updatedList);
+    }
 
-return (<>
-    <div className="note note__modal">
+return (
+    <div id={id.toString()} className="note note__modal">
+            <button id={id.toString()}  className='btn-del' onClick={deleteNote} >{<MdOutlineDelete id={id.toString()}/>}</button>
             <h1>{title}</h1>
             <button onClick={clickHandle} className="btn_open">Open</button>
+
     </div>
-    </>
+    
   )
 }

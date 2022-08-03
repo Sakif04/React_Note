@@ -14,10 +14,11 @@
         @apply w-2/3 my-4 col-start-3 col-end-7 mr-8;
     }
     .modal{
-        @apply absolute left-1/2 bg-rose-200 w-fit p-5 flex-col rounded ;
+        @apply absolute bottom-1/4 -translate-x-1/2 left-1/2 bg-rose-200 w-80 p-5 text-center flex-col  justify-center rounded;
+        word-break: break-all;
     }
     .note__modal{
-        @apply w-80 h-32 flex items-center justify-center  flex-col text-gray-200 text-2xl relative rounded-lg m-6;
+        @apply relative w-80 h-32 flex items-center justify-center  flex-col text-gray-200 text-2xl relative rounded-lg m-6;
         background-color:#85586F;
     }
     .note-add-form{
@@ -46,11 +47,15 @@
     .input-title{
         @apply h-10 w-2/3 ;
     }
+
     .input-desc{
         @apply h-20 w-full peer-focus:-translate-y-4 left-1;
     }
     .btn-add{
         @apply text-6xl col-start-6 col-end-10 self-center text-rose-800 ;
+    }
+    .note .btn-del{
+        @apply absolute right-4 text-pink-700;
     }
     .btn_delete{
         @apply w-8 h-5 bg-rose-600 rounded-sm text-sm absolute top-0 right-0 grid place-items-center;
