@@ -11,7 +11,7 @@ type NoteProps={
 
 export default function NoteProvider( {children}:NoteProps){
   let store= localStorage.getItem('notes')
-  const notes:noteType[] =JSON.parse(store || []);
+  const notes:noteType[] =store?JSON.parse(store ): [];
 
   const [activeNote,setActiveNote]=useState(null);  
   const [noteList,setNotelist]=useState(notes);
